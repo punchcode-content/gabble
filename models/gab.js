@@ -5,12 +5,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(140),
       allowNull: false
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  }, {});
+
+  Gab.associate = function (models) {
+    Gab.belongsTo(models.User, {foreignKey: 'userId'});
+  }
   return Gab;
 };
