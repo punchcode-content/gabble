@@ -2,12 +2,15 @@
   <div class="col">
     <h1>Sign up</h1>
     <form action="/users/signup" method="POST">
-      <div class="form-group {{#errors.username}}has-danger{{/errors.username}}">
+      <div class="form-group{{#errors.username}} has-danger{{/errors.username}}{{#uniqueError}} has-danger{{/uniqueError}}">
         <label for="username">Username</label>
         <input class="form-control" type="text" id="username" name="username" value="{{username}}" />
         {{#errors.username}}
           <div class="form-control-feedback">{{msg}}</div>
         {{/errors.username}}
+        {{#uniqueError}}
+          <div class="form-control-feedback">This username has already been taken.</div>
+        {{/uniqueError}}
       </div>
       <div class="form-group {{#errors.password}}has-danger{{/errors.password}}">
         <label for="password">Password</label>
