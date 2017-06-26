@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col">
+    <h1>Create a new gab</h1>
+    <form action="/gabs" method="POST">
+      <div class="form-group {{#errors.body}}has-danger{{/errors.body}}">
+        <textarea class="form-control" type="text" id="body" name="body" placeholder="Enter your gab" rows=3>{{body}}</textarea>
+        {{#errors.body}}
+          <div class="form-control-feedback">{{msg}}</div>
+        {{/errors.body}}
+      </div>
+      <button type="submit" class="btn btn-primary">Create gab</button>
+    </form>
+  </div>
+</div>
