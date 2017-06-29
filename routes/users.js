@@ -1,6 +1,6 @@
 const express = require("express");
 const models = require("../models");
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
 const router = express.Router();
 
@@ -24,7 +24,7 @@ router.post("/signup", function (req, res) {
         console.log("newUser.id", newUser.id);
         console.log("session.userId", req.session.userId)
         res.redirect("/");
-      }).catch(sequelize.UniqueConstraintError, function (err) {
+      }).catch(Sequelize.UniqueConstraintError, function (err) {
         res.render("users/signup", {uniqueError: true, username: req.body.username});
       });
     } else {
